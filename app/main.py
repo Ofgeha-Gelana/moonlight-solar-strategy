@@ -4,46 +4,36 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 
-@st.cache
-def load_data():
-    data = pd.read_csv('path/to/your/data.csv')
-    return data
-
-data = load_data()
-
-
-st.title('Your Dashboard Title')
-st.write('Introduction to your dashboard and what it shows.')
-
-# Display Data Overview
-st.subheader('Data Overview')
-st.dataframe(data.head())
-
-# Interactive Widgets (e.g., Sliders for filters)
-min_value = st.slider('Minimum Value', int(data['ColumnName'].min()), int(data['ColumnName'].max()))
-max_value = st.slider('Maximum Value', int(data['ColumnName'].min()), int(data['ColumnName'].max()))
-
-filtered_data = data[(data['ColumnName'] >= min_value) & (data['ColumnName'] <= max_value)]
 
 
 
+st.sidebar.header('Navigation')
+main_page = st.sidebar.radio('Go to:', ['Home', 'Data Overview', 'Visualizations'])
 
-st.subheader('Data Visualizations')
-fig, ax = plt.subplots()
+if main_page == 'Home':
+    st.title('Welcome to the Solar Radiation Analysis')
+    st.write('Introduction to the app and its purpose.')
+elif main_page == 'Data Overview':
+    sub_page = st.sidebar.selectbox('Data Overview Options:', ['Overview', 'Summary', 'Statistics'])
+    if sub_page == 'Overview':
+        st.title('Data Overview')
+        st.write('Description of the data and its structure.')
+    elif sub_page == 'Summary':
+        st.title('Data Summary')
+        st.write('A brief summary of key data points.')
+    elif sub_page == 'Statistics':
+        st.title('Data Statistics')
+        st.write('Descriptive statistics of the data.')
+elif main_page == 'Visualizations':
+    sub_page = st.sidebar.selectbox('Visualization Options:', ['Histogram', 'Bubble Chart', 'Scatter Plot'])
+    if sub_page == 'Histogram':
+        st.title('Histogram')
+        st.write('Visualizing data distribution.')
+    elif sub_page == 'Bubble Chart':
+        st.title('Bubble Chart')
+        st.write('Analyzing relationships between variables.')
+    elif sub_page == 'Scatter Plot':
+        st.title('Scatter Plot')
+        st.write('Exploring relationships between data points.')
 
-# Example: Histogram
-ax.hist(filtered_data['ColumnName'], bins=20)
-ax.set_title('Histogram of ColumnName')
-ax.set_xlabel('Values')
-ax.set_ylabel('Frequency')
 
-st.pyplot(fig)
-
-# Example: Bubble Chart
-fig, ax = plt.subplots()
-sc = ax.scatter(filtered_data['GHI'], filtered_data['Tamb'], s=filtered_data['WS'], c=filtered_data['RH'], cmap='viridis')
-ax.set_xlabel('GHI')
-ax.set_ylabel('Tamb')
-ax.set_title('GHI vs Tamb with Bubble Size as WS and Color as RH')
-fig.colorbar(sc)
-st.pyplot(fig)
