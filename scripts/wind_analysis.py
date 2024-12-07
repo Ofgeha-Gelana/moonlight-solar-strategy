@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from math import pi
 
 def wind_analysis(file_path: str):
     # Load the data
@@ -11,11 +10,11 @@ def wind_analysis(file_path: str):
     df.set_index('Timestamp', inplace=True)
 
     # **Step 1: Distribution of Wind Speed (WS and WSgust)**
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(14, 6))
 
-    # Distribution of wind speeds
-    sns.histplot(df['WS'], bins=30, kde=True, color='blue', alpha=0.6, label='Wind Speed (WS)')
-    sns.histplot(df['WSgust'], bins=30, kde=True, color='green', alpha=0.6, label='Wind Gust (WSgust)')
+    # Distribution of wind speeds with KDE plot
+    sns.histplot(df['WS'], bins=30, kde=True, color='blue', alpha=0.7, label='Wind Speed (WS)')
+    sns.histplot(df['WSgust'], bins=30, kde=True, color='green', alpha=0.7, label='Wind Gust (WSgust)')
     
     plt.title('Distribution of Wind Speeds')
     plt.xlabel('Wind Speed (m/s)')
@@ -24,17 +23,17 @@ def wind_analysis(file_path: str):
     plt.show()
 
     # **Step 2: Wind Rose for Wind Direction (WD)**
-    fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(12, 6))
+    fig, ax = plt.subplots(subplot_kw={'projection': 'polar'}, figsize=(14, 6))
 
-    # Convert wind direction to radians for polar plot
+    # Convert wind direction to radians once
     df['WD_rad'] = np.deg2rad(df['WD'])
 
-    # Plot wind rose
-    ax.hist(df['WD_rad'], bins=np.linspace(0, 2 * np.pi, 36), color='purple', alpha=0.6)
+    # Plot wind rose with appropriate settings
+    ax.hist(df['WD_rad'], bins=np.linspace(0, 2 * np.pi, 36), color='purple', alpha=0.7)
     
     # Set labels and limits
     ax.set_title('Wind Rose for Wind Direction (WD)')
-    ax.set_xticks(np.linspace(0, 2 * np.pi, 12, endpoint=False))
+    ax.set_xticks(np.linspace(0, 2 * np.pi, 8, endpoint=False))
     ax.set_xticklabels(['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'], rotation=45)
     ax.set_ylim(0, df['WD_rad'].count() / 2)
 
