@@ -21,13 +21,12 @@ def histogram_for_GHI(df):
     st.pyplot(fig)  # Pass the figure to st.pyplot()
     
     
-def hi
-
-# Histogram for DNI
-plt.figure(figsize=(8, 6))
-sns.histplot(df['DNI'], bins=30, kde=True)
-plt.title('Histogram of DNI (Direct Normal Irradiance)')
-plt.xlabel('DNI (W/m²)')
-plt.ylabel('Frequency')
-plt.show()
+def histogram_for_DNI(df):
+    fig, ax = plt.subplots(figsize=(8, 6))
+    # Histogram for DNI
+    sns.histplot(df['DNI'], bins=30, kde=True, ax=ax)
+    ax.set_title('Histogram of DNI (Direct Normal Irradiance)')
+    ax.set_xlabel('DNI (W/m²)')
+    ax.set_ylabel('Frequency')
+    st.pyplot(fig)
 

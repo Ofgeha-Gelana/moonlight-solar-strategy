@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 
-from utils import histogram_for_GHI
+from utils import histogram_for_GHI, histogram_for_DNI
 
 
 st.sidebar.header('Navigation')
@@ -35,7 +35,7 @@ elif main_page == 'Visualizations':
         st.write('Histogram for GHI (Global Horizontal Irradiance)')
         histogram_for_GHI(df)
         st.write('Histogram for DNI (Direct Normal Irradiance)')
-        histogram_for_GHI(df)
+        histogram_for_DNI(df)
     elif sub_page == 'Bubble Chart':
         st.title('Bubble Chart')
         st.write('Analyzing relationships between variables.')
