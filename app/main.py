@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 
-
+from utils import histogram_for_GHI
 
 
 st.sidebar.header('Navigation')
 main_page = st.sidebar.radio('Go to:', ['Home', 'Data Overview', 'Visualizations'])
+df = pd.read_csv("../data/processed/cleaned_data.csv")
 
 if main_page == 'Home':
     st.title('Welcome to the Solar Radiation Analysis')
@@ -18,9 +19,12 @@ elif main_page == 'Data Overview':
     if sub_page == 'Overview':
         st.title('Data Overview')
         st.write('Description of the data and its structure.')
+        st.write(df)
     elif sub_page == 'Summary':
         st.title('Data Summary')
         st.write('A brief summary of key data points.')
+        st.write(df.describe())
+
     elif sub_page == 'Statistics':
         st.title('Data Statistics')
         st.write('Descriptive statistics of the data.')
@@ -29,6 +33,7 @@ elif main_page == 'Visualizations':
     if sub_page == 'Histogram':
         st.title('Histogram')
         st.write('Visualizing data distribution.')
+        histogram_for_GHI()
     elif sub_page == 'Bubble Chart':
         st.title('Bubble Chart')
         st.write('Analyzing relationships between variables.')
