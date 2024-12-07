@@ -12,10 +12,22 @@ df.set_index('Timestamp', inplace=True)
 # utils.py
 
 def histogram_for_GHI(df):
-    # Histogram for GHI
-    plt.figure(figsize=(8, 6))
-    sns.histplot(df['GHI'], bins=30, kde=True)
-    plt.title('Histogram of GHI (Global Horizontal Irradiance)')
-    plt.xlabel('GHI (W/m²)')
-    plt.ylabel('Frequency')
-    st.pyplot()  # Use st.pyplot() to render the plot in Streamlit
+    # Create a new figure and axes
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.histplot(df['GHI'], bins=30, kde=True, ax=ax)
+    ax.set_title('Histogram of GHI (Global Horizontal Irradiance)')
+    ax.set_xlabel('GHI (W/m²)')
+    ax.set_ylabel('Frequency')
+    st.pyplot(fig)  # Pass the figure to st.pyplot()
+    
+    
+def hi
+
+# Histogram for DNI
+plt.figure(figsize=(8, 6))
+sns.histplot(df['DNI'], bins=30, kde=True)
+plt.title('Histogram of DNI (Direct Normal Irradiance)')
+plt.xlabel('DNI (W/m²)')
+plt.ylabel('Frequency')
+plt.show()
+

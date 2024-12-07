@@ -32,8 +32,10 @@ elif main_page == 'Visualizations':
     sub_page = st.sidebar.selectbox('Visualization Options:', ['Histogram', 'Bubble Chart', 'Scatter Plot'])
     if sub_page == 'Histogram':
         st.title('Histogram')
-        st.write('Visualizing data distribution.')
-        histogram_for_GHI()
+        st.write('Histogram for GHI (Global Horizontal Irradiance)')
+        histogram_for_GHI(df)
+        st.write('Histogram for DNI (Direct Normal Irradiance)')
+        histogram_for_GHI(df)
     elif sub_page == 'Bubble Chart':
         st.title('Bubble Chart')
         st.write('Analyzing relationships between variables.')
