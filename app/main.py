@@ -9,7 +9,7 @@ from utils import histogram_for_GHI, histogram_for_DNI
 
 st.sidebar.header('Navigation')
 main_page = st.sidebar.radio('Go to:', ['Home', 'Data Overview', 'Visualizations'])
-df = pd.read_csv("../data/processed/cleaned_data.csv")
+df = pd.read_csv("cleaned_data.csv")
 
 if main_page == 'Home':
     st.title('Welcome to the Solar Radiation Analysis')
