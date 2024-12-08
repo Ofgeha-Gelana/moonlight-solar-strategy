@@ -12,6 +12,7 @@ This project involves the development of an interactive data visualization dashb
 - **Deployment**: The application is deployed on Streamlit Community Cloud, accessible via a public URL.
 
 ![App Screenshot](https://github.com/Ofgeha-Gelana/moonlight-solar-strategy/blob/dashboard-dev/src/output.png)
+![Bubble plot](https://github.com/Ofgeha-Gelana/moonlight-solar-strategy/blob/dashboard-dev/src/output1.png)
 
 ## **Installation**
 
