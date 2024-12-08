@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from io import BytesIO
 
-st.write("Welcome to Solar radiation dashboard")
+# st.write("Welcome to Solar radiation dashboard")
 
 # from utils import histogram_for_GHI, histogram_for_DNI
 
