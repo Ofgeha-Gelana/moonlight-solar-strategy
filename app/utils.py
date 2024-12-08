@@ -5,7 +5,7 @@ import seaborn as sns
 import streamlit as st
 
 
-df = pd.read_csv("../data/processed/cleaned_data.csv", parse_dates=['Timestamp'])
+df = pd.read_csv("cleaned_data.csv", parse_dates=['Timestamp'])
 # Set the Timestamp as index for time series plotting
 df.set_index('Timestamp', inplace=True)
 
