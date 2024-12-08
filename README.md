@@ -20,3 +20,8 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/Ofgeha-Gelana/moonlight-solar-strategy
    cd moonlight-solar-strategy
+
+   python -m venv venv
+    .venv/bin/activate 
+
+    pip install -r requirements.txt
