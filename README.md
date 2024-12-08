@@ -11,6 +11,9 @@ This project involves the development of an interactive data visualization dashb
 - **Comprehensive Analysis**: The dashboard includes line plots, area plots, histograms, polar plots, and bubble charts to analyze various environmental factors.
 - **Deployment**: The application is deployed on Streamlit Community Cloud, accessible via a public URL.
 
+![App Screenshot](https://github.com/Ofgeha-Gelana/moonlight-solar-strategy/blob/dashboard-dev/src/output.png)
+![Bubble plot](https://github.com/Ofgeha-Gelana/moonlight-solar-strategy/blob/dashboard-dev/src/output1.png)
+
 ## **Installation**
 
 To run this project locally, follow these steps:
@@ -20,3 +23,8 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/Ofgeha-Gelana/moonlight-solar-strategy
    cd moonlight-solar-strategy
+
+   python -m venv venv
+    .venv/bin/activate 
+
+    pip install -r requirements.txt
